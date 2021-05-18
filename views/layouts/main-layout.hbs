@@ -6,9 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>{{pageTitle}}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/main.css" />
     {{#if productCSS}}
     <link rel="stylesheet" href="/css/product.css" />
+    {{/if}}
+    {{#if cartCSS}}
+    <link rel="stylesheet" href="/css/cart.css" />
     {{/if}}
     {{#if formCSS}}
     <link rel="stylesheet" href="/css/forms.css" />
@@ -16,15 +30,17 @@
 </head>
 
 <body>
+    <div class="backdrop"></div>
     <header class="main-header">
+        <button id="side-menu-toggle">Menu</button>
         <nav class="main-header__nav">
             <ul class="main-header__item-list">
-                <li class="main-header__item"><a class="{{#if activeShop}}active {{/if}}" href="/">Shop</a></li>
+                <li class="main-header__item"><a class="{{#if IndexShop}}active {{/if}}" href="/">Shop</a></li>
                 <li class="main-header__item">
-                    <a class="{{#if products }}active {{/if}}" href="/products">Products</a>
+                    <a class="{{#if activeProduct }}active{{/if}}" href="/products">Products</a>
                 </li>
                 <li class="main-header__item">
-                    <a class="{{#if cart }}active {{/if}}" href="/cart">Cart</a>
+                    <a class="{{#if cart }}active{{/if}}" href="/cart">Cart</a>
                 </li>
                 <li class="main-header__item">
                     <a class="{{#if orders }}active {{/if}}" href="/orders">Orders</a>
@@ -35,10 +51,12 @@
                 <li class="main-header__item">
                     <a class="{{#if adminProducts }}active {{/if}}" href="/admin/products">Admin Products</a>
                 </li>
-                
+
             </ul>
         </nav>
     </header>
+
+    </nav>
     {{{body}}}
 </body>
 

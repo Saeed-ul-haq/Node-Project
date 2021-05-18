@@ -1,3 +1,21 @@
 <main>
-    
+    {{#if hasOrder}}
+    {{!-- <div class="grid"> --}}
+        <ul class="cart__item-list">
+            {{#each orders}}
+            <li class="cart__item">
+                <h1> # {{this.dataValues.id}}</h1>
+                <ul>
+                    {{#each this.dataValues.products}}
+                    <li>
+                        {{this.dataValues.title}} {{this.dataValues.orderItem.dataValues.quantity}}
+                    </li>
+                    {{/each}}
+                </ul>
+            </li>
+            {{/each}}
+        </ul>
+        {{else}}
+        <h1>No Orders</h1>
+        {{/if }}
 </main>
